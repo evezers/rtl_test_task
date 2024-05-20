@@ -16,7 +16,7 @@ module stream_upsize #(
 
 );
 
-  int j;
+  int word_counter;
   logic r_last;
 
   logic [T_DATA_WIDTH-1:0] r_latency_shift[T_DATA_RATIO + 1];
@@ -66,15 +66,15 @@ module stream_upsize #(
       s_ready_o <= 0;
       m_valid_o <= 0;
       m_last_o <= 0;
-      j <= T_DATA_RATIO - 1;
+      word_counter <= T_DATA_RATIO - 1;
     end else begin
 
       if (r_last || s_valid_i) begin
-        if (r_last && j == 0) s_ready_o <= 0;
+        if (r_last && word_counter == 0) s_ready_o <= 0;
         else  s_ready_o <= 1;
 
-        if (j == T_DATA_RATIO - 1) begin
-          j <= 0;
+        if (word_counter == T_DATA_RATIO - 1) begin
+          word_counter <= 0;
 
           if (r_valid_i) m_valid_o <= 1;
           if (r_last) m_last_o <= 1;
@@ -82,7 +82,7 @@ module stream_upsize #(
           m_valid_o <= 0;
           m_last_o <= 0;
 
-          j <= j + 1;
+          word_counter <= word_counter + 1;
         end
       end else begin
         m_valid_o <= 0;

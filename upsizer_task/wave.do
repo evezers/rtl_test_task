@@ -12,7 +12,7 @@ add wave -noupdate /testbench/m_last_o
 add wave -noupdate -radix binary -childformat {{{/testbench/m_keep_o[1]} -radix binary} {{/testbench/m_keep_o[0]} -radix binary}} -subitemconfig {{/testbench/m_keep_o[1]} {-height 16 -radix binary} {/testbench/m_keep_o[0]} {-height 16 -radix binary}} /testbench/m_keep_o
 add wave -noupdate -expand /testbench/m_data_o
 add wave -noupdate -expand /testbench/stream_upsize_inst/r_latency_shift
-add wave -noupdate -radix decimal /testbench/stream_upsize_inst/j
+add wave -noupdate -radix decimal /testbench/stream_upsize_inst/word_counter
 add wave -noupdate /testbench/stream_upsize_inst/r_valid_i
 add wave -noupdate -radix binary -childformat {{{/testbench/stream_upsize_inst/r_keep_shift[2]} -radix binary} {{/testbench/stream_upsize_inst/r_keep_shift[1]} -radix binary} {{/testbench/stream_upsize_inst/r_keep_shift[0]} -radix binary}} -subitemconfig {{/testbench/stream_upsize_inst/r_keep_shift[2]} {-height 16 -radix binary} {/testbench/stream_upsize_inst/r_keep_shift[1]} {-height 16 -radix binary} {/testbench/stream_upsize_inst/r_keep_shift[0]} {-height 16 -radix binary}} /testbench/stream_upsize_inst/r_keep_shift
 add wave -noupdate /testbench/stream_upsize_inst/r_last
